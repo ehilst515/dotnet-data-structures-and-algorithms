@@ -15,3 +15,11 @@ Input: [1, 2, 4], 3
 Output:[1, 2, 3, 4]
 
 ![whiteboard 02](../../Assets/challenge02.png)
+
+3. Binary Search
+
+Input: [1, 2, 3, 4, 5], 4
+
+Output: 3
+
+![whiteboard 03](../../Assets/challenge03.png)
