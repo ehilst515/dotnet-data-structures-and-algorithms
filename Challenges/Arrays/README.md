@@ -4,7 +4,7 @@
 
 Input: [1, 2, 3, 4]
 
-Output:[4, 3, 2, 1]
+Output: [4, 3, 2, 1]
 
 ![whiteboard 01](../../Assets/challenge01.png)
 
