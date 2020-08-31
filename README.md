@@ -34,6 +34,6 @@ Then select and open ```DSA.sln```
 
 ### Visuals
 
-![Linked List Visual](../Assests/LinkedList2.jpg)
+![Linked List Visual](./Assests/LinkedList2.jpg)
 
-![Linked List Visual](../Assests/LinkedList3.jpg)
+![Linked List Visual](./Assests/LinkedList3.jpg)
