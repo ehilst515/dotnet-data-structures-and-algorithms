@@ -1,21 +1,23 @@
-![.NET Core](https://github.com/ehilst515/tic-tac-toe/workflows/.NET%20Core/badge.svg)
+![.NET Core](https://github.com/ehilst515/dotnet-data-structures-and-algorithms/workflows/.NET%20Core/badge.svg)
 
 
-## Tic-Tac-Toe
+## Linked Lists
 
 *Author: Enrique Hilst*
 
 ----
 
 ## Description
-This is a console application that allows two players to play the game Tic Tac Toe.
+
+This is a console application that creates linked lists, appends to linked lists, adds to the beginning of linked lists, and adds nodes before or after a specified node.
+
 ---
 
 ### Getting Started
 Clone this repository to your local machine.
 
 ```
-$ git clone https://github.com/ehilst515/tic-tac-toe.git
+$ git clone https://github.com/ehilst515/dotnet-data-structures-and-algorithms.git
 ```
 
 ### To run the program from Visual Studio:
@@ -24,15 +26,14 @@ Select ```File``` -> ```Open``` -> ```Project/Solution```
 
 Next navigate to the location you cloned the Repository.
 
-Double click on the ```Tic-Tac-Toe``` directory.
+Double click on the ```dotnet-data-structures-and-algorithms``` directory.
 
-Then select and open ```Tic-Tac-Toe.sln```
+Then select and open ```DSA.sln```
 
 ---
 
 ### Visuals
-![Tic-Tac-Toe Visual 1](./Assets/Game_Visual_1.JPG)
 
-![Tic-Tac-Toe Visual 2](./Assets/Game_Visual_2.JPG)
+![Linked List Visual](../Assests/LinkedList2.jpg)
 
-![Tic-Tac-Toe Visual 2](./Assets/Game_Visual_3.JPG)
+![Linked List Visual](../Assests/LinkedList3.jpg)
