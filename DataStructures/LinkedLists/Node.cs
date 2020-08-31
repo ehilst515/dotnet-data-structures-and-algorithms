@@ -9,11 +9,6 @@
             Value = value;
         }
 
-        public Node(string stringValue)
-        {
-            this.stringValue = stringValue;
-        }
-
         // Value of this node
         public int Value { get; set; }
 
