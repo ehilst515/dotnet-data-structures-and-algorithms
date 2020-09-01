@@ -1,4 +1,6 @@
-﻿namespace DataStructures.LinkedLists
+﻿using System;
+
+namespace DataStructures.LinkedLists
 {
     public class LinkedList
     {
@@ -56,6 +58,28 @@
                 }
                 current = current.Next;
             }
+        }
+
+        public int KthFromEnd(int k)
+        {
+
+                Node current = Head;
+                int count = 0;
+                while (current != null)
+                {
+                    count++;
+                    current = current.Next;
+                }
+                if (k > count)
+                {
+                    throw new NullReferenceException();
+                }
+                current = Head;
+                for (int i = 0; i < count - k; i++)
+                {
+                    current = current.Next;
+                }
+                return current.Value;
         }
 
         public bool Includes(int value)
