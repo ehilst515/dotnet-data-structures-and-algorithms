@@ -37,3 +37,7 @@ Then select and open ```DSA.sln```
 ![Linked List Visual](./Assests/LinkedList2.jpg)
 
 ![Linked List Visual](./Assests/LinkedList3.jpg)
+
+![Zipper](./Assests/Zipper.png)
+
+![Zipper Method](./Assests/Zipper.png)
