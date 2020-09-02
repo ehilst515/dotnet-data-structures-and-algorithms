@@ -82,6 +82,7 @@ namespace DataStructures.LinkedLists
                 return current.Value;
         }
 
+
         public bool Includes(int value)
         {
             Node current = Head;

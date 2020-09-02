@@ -1,6 +1,8 @@
 using System;
 using DataStructures.LinkedLists;
 using Xunit;
+using Challenges.LinkedLists;
+
 
 namespace DataStructures.Tests.LinkedLists
 {
@@ -130,6 +132,7 @@ namespace DataStructures.Tests.LinkedLists
             // Assert
             Assert.Equal("{ 1 } -> { 2 } -> { 5 } -> { 3 } -> NULL", list.ToString());
         }
+
         [Fact]
         public void Search_at_kValue_from_end()
         {
@@ -146,6 +149,7 @@ namespace DataStructures.Tests.LinkedLists
             int result = list.KthFromEnd(4);
             Assert.Equal(4, result);
         }
+
         [Fact]
         public void Search_at_kValue_if_empty_list()
         {
@@ -156,6 +160,7 @@ namespace DataStructures.Tests.LinkedLists
                 return list.KthFromEnd(3);
             });
         }
+
         [Fact]
         public void Search_list_with_one_node()
         {
@@ -166,6 +171,84 @@ namespace DataStructures.Tests.LinkedLists
                 //Act
                 return list.KthFromEnd(3);
             });
+        }
+
+        // Zipper tests
+        [Fact]
+        public void Zipper_returns_1_list_of_2_lists_alternating_values()
+        {
+            // Arrange
+            LinkedList list1 = new LinkedList();
+            LinkedList list2 = new LinkedList();
+            list1.Insert(1);
+            list1.Insert(3);
+            list1.Insert(5);
+
+            list2.Insert(2);
+            list2.Insert(4);
+            list2.Insert(6);
+
+            LinkedList expected = new LinkedList();
+            expected.Insert(1);
+            expected.Insert(2);
+            expected.Insert(3);
+            expected.Insert(4);
+            expected.Insert(5);
+            expected.Insert(6);
+
+            // Act
+            LinkedList result = LLChallenges.Zipper(list1, list2);
+
+            // Assert
+            Assert.Equal(expected.ToString(), result.ToString());
+        }
+
+        [Fact]
+        public void Zipper_returns_properly_if_lists_are_different_lengths()
+        {
+            // Arrange
+            LinkedList list1 = new LinkedList();
+            LinkedList list2 = new LinkedList();
+            list1.Insert(3);
+
+            list2.Insert(1);
+            list2.Insert(2);
+            list2.Insert(4);
+
+            LinkedList expected = new LinkedList();
+            expected.Insert(1);
+            expected.Insert(2);
+            expected.Insert(3);
+            expected.Insert(4);
+
+            // Act
+            LinkedList result = LLChallenges.Zipper(list1, list2);
+
+            // Assert
+            Assert.Equal(expected.ToString(), result.ToString());
+        }
+
+        [Fact]
+        public void Zipper_zipps_with_empty_list()
+        {
+            // Arrange
+            LinkedList list1 = new LinkedList();
+            LinkedList list2 = new LinkedList();
+
+            list2.Insert(1);
+            list2.Insert(2);
+            list2.Insert(3);
+
+            LinkedList expected = new LinkedList();
+            expected.Insert(1);
+            expected.Insert(2);
+            expected.Insert(3);
+
+            // Act
+            LinkedList result = LLChallenges.Zipper(list1, list2);
+
+            // Assert
+            Assert.Equal(expected.ToString(), result.ToString());
         }
     }
 }
