@@ -66,9 +66,42 @@ namespace DataStructures.Tests
             //Assert
             Assert.Equal(2, stack.Peek());
             Assert.Equal(1, result);
-
-
         }
 
+        [Fact]
+        public void Pop_can_empty_stack()
+        {
+            // Arrange
+            Stack<int> stack = new Stack<int>();
+            stack.Push(3);
+            stack.Push(2);
+            stack.Push(1);
+
+            //Act
+            stack.Pop();
+            stack.Pop();
+            stack.Pop();
+
+            //Assert
+            Assert.True(stack.IsEmpty());
+        }
+
+    //Queue Tests
+
+        //[Fact]
+        //public void Enqueue_adds_node_to_rear()
+        //{
+        //    // Arrange
+        //    Queue<int> queue = new Queue<int>();
+
+        //    // Act
+        //    queue.Enqueue(1);
+        //    queue.Enqueue(1);
+
+        //    //Assert
+        //    Assert.Equal(1, queue.QPeek());
+
+        //}
     }
+
 }

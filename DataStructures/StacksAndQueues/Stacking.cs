@@ -29,18 +29,23 @@ namespace DataStructures.StacksAndQueues
 
         public T Pop()
         {
-            Node temp = Top;
-            Top = temp.Next;
-            temp.Next = null;
-            return temp.Value;
+            if (Top == null)
+                throw new InvalidOperationException();
+
+            else
+            {
+                Node temp = Top;
+                Top = temp.Next;
+                temp.Next = null;
+                return temp.Value;
+            }
         }
 
         public T Peek()
         {
             if(Top == null)
-            {
                 throw new InvalidOperationException();
-            }
+            
             else
                 return Top.Value;
         }
