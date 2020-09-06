@@ -6,5 +6,6 @@
 
   <ItemGroup>
     <Folder Include="LinkedLists\" />
+    <Folder Include="StacksAndQueues\" />
   </ItemGroup>
 </Project>
