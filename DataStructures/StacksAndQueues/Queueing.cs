@@ -3,45 +3,62 @@ namespace DataStructures.StacksAndQueues
 {
     public class Queue<T>
     {
-
-        public class QNode
+        public class Node
         {
-
-            public QNode(T Qvalue)
+            public Node(T value)
             {
-                QValue = Qvalue;
+                Value = value;
             }
-
             // Value of this node
-            public T QValue { get; set; }
-
+            public T Value { get; set; }
             // Pointer to the next node in the list
-            public QNode QNext { get; set; }
+            public Node Next { get; set; }
         }
 
-        public QNode QFront { get; set; }
-        public QNode QRear { get; set; }
+        public Node Front { get; set; }
+        public Node Rear { get; set; }
+
+        public void Enqueue(T value)
+        {
+            Node node = new Node(value);
+            if (Front == null)
+            {
+                node.Next = node;
+                Front = node;
+            }
+            else
+            {
+                node.Next = node;
+                Rear = node;
+            }
+        }
+
+        public T Dequeue()
+        {
+            Node temp = Front;
+            Front = Front.Next;
+            temp.Next = null;
+            return temp.Value;
+        }
 
         public T QPeek()
         {
-            return QFront.QValue;
+            if (Front == null)
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                return Front.Value;
+            }
         }
 
-        public void Enqueue(T Qvalue)
+        public bool QIsEmpty()
         {
-            QNode Qnode = new QNode(Qvalue);
-            QRear.QNext = Qnode;
-            QRear = Qnode;
-        }
-
-
-        public bool IsEmpty()
-        {
-            if (QFront == null)
+            if (Front == null)
             {
                 return true;
             }
-
             else
                 return false;
         }

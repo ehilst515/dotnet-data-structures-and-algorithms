@@ -86,22 +86,48 @@ namespace DataStructures.Tests
             Assert.True(stack.IsEmpty());
         }
 
-    //Queue Tests
+        //Queue Tests
 
-        //[Fact]
-        //public void Enqueue_adds_node_to_rear()
-        //{
-        //    // Arrange
-        //    Queue<int> queue = new Queue<int>();
-
-        //    // Act
-        //    queue.Enqueue(1);
-        //    queue.Enqueue(1);
-
-        //    //Assert
-        //    Assert.Equal(1, queue.QPeek());
-
-        //}
+        [Fact]
+        public void IsEmpty_returns_true_if_queue_is_empty()
+        {
+            // Arrange 
+            Queue<int> queue = new Queue<int>();
+            // Act
+            bool result = queue.QIsEmpty();
+            // Assert
+            Assert.True(result);
+        }
+        [Fact]
+        public void QIsEmpty_returns_false_if_queue_is_not_empty()
+        {
+            // Arrange 
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(1);
+            // Act
+            bool result = queue.QIsEmpty();
+            // Assert
+            Assert.False(result);
+        }
+        [Fact]
+        public void Dequeue_takes_off_front_node()
+        {
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            int result = queue.Dequeue();
+            Assert.Equal(1, result);
+        }
+        [Fact]
+        public void Peek_look_at_front_value()
+        {
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            int result = queue.QPeek();
+            Assert.Equal(1, result);
+        }
     }
-
 }
