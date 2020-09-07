@@ -18,6 +18,7 @@ namespace DataStructures.StacksAndQueues
         public Node Front { get; set; }
         public Node Rear { get; set; }
 
+        // Queueing
         public void Enqueue(T value)
         {
             Node node = new Node(value);

@@ -20,6 +20,7 @@ namespace DataStructures.StacksAndQueues
 
         public Node Top { get; set; }
 
+        // Stacking
         public void Push(T value)
         {
             Node node = new Node(value);
