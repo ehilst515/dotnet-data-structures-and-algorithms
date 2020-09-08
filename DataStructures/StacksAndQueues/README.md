@@ -35,3 +35,8 @@ Then select and open ```DSA.sln```
 
 #### Queueing
 ![Queueing](../../Assets/Queueing.jpg)
+
+#### Psuedo Code
+![Psuedo Code 1](../../Assets/Psuedo1.png)
+
+![Psuedo Code 1](../../Assets/Psuedo2.png)
