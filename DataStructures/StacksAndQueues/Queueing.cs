@@ -13,6 +13,8 @@ namespace DataStructures.StacksAndQueues
             public T Value { get; set; }
             // Pointer to the next node in the list
             public Node Next { get; set; }
+
+            public Node Prev { get; set; }
         }
 
         public Node Front { get; set; }
