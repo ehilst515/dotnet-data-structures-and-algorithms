@@ -40,3 +40,9 @@ Then select and open ```DSA.sln```
 ![Psuedo Code 1](../../Assets/Psuedo1.png)
 
 ![Psuedo Code 1](../../Assets/Psuedo2.png)
+
+#### Animal Shelter
+![Animal Shelter 1](../../Assets/AnimalShelter1.png)
+
+![Animal Shelter 2](../../Assets/AnimalShelter2.png)
+
