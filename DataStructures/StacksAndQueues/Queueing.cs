@@ -13,6 +13,8 @@ namespace DataStructures.StacksAndQueues
             public T Value { get; set; }
             // Pointer to the next node in the list
             public Node Next { get; set; }
+
+            public Node Prev { get; set; }
         }
 
         public Node Front { get; set; }
@@ -22,15 +24,18 @@ namespace DataStructures.StacksAndQueues
         public void Enqueue(T value)
         {
             Node node = new Node(value);
-            if (Front == null)
+            if (Rear == null)
             {
-                node.Next = node;
-                Front = node;
+                Front = Rear = node;
+
             }
+            
             else
             {
-                node.Next = node;
+                Node prev = Rear;
                 Rear = node;
+                prev.Next = node;
+                node.Prev = prev;
             }
         }
 

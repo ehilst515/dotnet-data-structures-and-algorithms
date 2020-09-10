@@ -3,6 +3,7 @@ namespace DataStructures.StacksAndQueues
 {
     public class Stack<T>
     {
+  
         public class Node
         {
 
