@@ -24,15 +24,18 @@ namespace DataStructures.StacksAndQueues
         public void Enqueue(T value)
         {
             Node node = new Node(value);
-            if (Front == null)
+            if (Rear == null)
             {
-                node.Next = node;
-                Front = node;
+                Front = Rear = node;
+
             }
+            
             else
             {
-                node.Next = node;
+                Node prev = Rear;
                 Rear = node;
+                prev.Next = node;
+                node.Prev = prev;
             }
         }
 

@@ -3,8 +3,7 @@ namespace DataStructures.StacksAndQueues
 {
     public class Stack<T>
     {
-        internal AnimalShelter<T>.Node Front;
-
+  
         public class Node
         {
 

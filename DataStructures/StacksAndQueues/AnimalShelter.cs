@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Transactions;
 using DataStructures.StacksAndQueues;
 
 namespace DataStructures.StacksAndQueues
@@ -13,51 +14,63 @@ namespace DataStructures.StacksAndQueues
         }
     }
 
-    public class AnimalShelter<T>
+    public class AnimalShelter
     {
         public class Node
         {
-            public Node(T value)
+            public Node(Animal.Type value)
             {
                 Value = value;
             }
             // Value of this node
-            public T Value { get; set; }
+            public Animal.Type Value { get; set; }
             // Pointer to the next node in the list
             public Node Next { get; set; }
 
             public Node Prev { get; set; }
         }
+
         public Node Front { get; set; }
         public Node Rear { get; set; }
 
 
-        public void AnimalEnqueue(T animal)
+        public void AnimalEnqueue(Animal.Type animal)
         {
             Node node = new Node(animal);
-            if (Front == null)
+            if (Rear == null)
             {
-                node.Next = node;
-                Front = node;
-            }
+                Front = Rear = node;
 
+            }
             else
             {
-                node.Next = node;
+                Node prev = Rear;
                 Rear = node;
+                prev.Next = node;
+                node.Prev = prev;
             }
         }
 
-        public Node AnimalDequeue(Animal.Type pref)
+        public Animal.Type? AnimalDequeue(Animal.Type pref)
         {
-            if (pref == Animal.Type.Dog || pref == Animal.Type.Dog)
+            var current = Front;
+            if (pref == Animal.Type.Dog || pref == Animal.Type.Cat)
             {
-                Node temp = Front;
-                Front = Front.Next;
-                temp.Next = null;
-                return temp;
+                while (current != null)
+                {
+                    if(current.Value == pref)
+                    {
+                        Node temp = current;
+                        current.Prev.Next = temp.Next;
+                        current.Next.Prev = temp.Prev;
+                        return current.Value;
+                    }
+                    current = current.Next;
+                    if (current == Rear)
+                        break;
+                }
+                return null;
             }
-            
             else return null;
         }
 
@@ -70,9 +83,5 @@ namespace DataStructures.StacksAndQueues
             else
                 return false;
         }
-
-
-
-
     }
 }

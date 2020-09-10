@@ -3,8 +3,6 @@ using System.Text;
 using Xunit;
 using DataStructures.StacksAndQueues;
 
-
-
 namespace DataStructures.Tests
 {
     public class AnimalTests
@@ -13,7 +11,7 @@ namespace DataStructures.Tests
         public void Shelter_starts_empty()
         {
             // Arrange
-            AnimalShelter<object> shelter = new AnimalShelter<object>();
+            AnimalShelter shelter = new AnimalShelter();
 
             // Act
             bool result = shelter.ShelterIsEmpty();
@@ -26,7 +24,7 @@ namespace DataStructures.Tests
         public void Shelter_can_add_animals()
         {
             // Arrange
-            AnimalShelter<object> shelter = new AnimalShelter<object>();
+            AnimalShelter shelter = new AnimalShelter();
 
             // Act
             shelter.AnimalEnqueue(Animal.Type.Dog);
@@ -40,34 +38,33 @@ namespace DataStructures.Tests
         public void Dequeue_returns_dog()
         {
             // Arrange
-            AnimalShelter<object> shelter = new AnimalShelter<object>();
+            AnimalShelter shelter = new AnimalShelter();
+            shelter.AnimalEnqueue(Animal.Type.Bird);
             shelter.AnimalEnqueue(Animal.Type.Dog);
             shelter.AnimalEnqueue(Animal.Type.Cat);
 
             // Act
-            AnimalShelter<object>.Node result = shelter.AnimalDequeue(Animal.Type.Dog);
+            Animal.Type? result = shelter.AnimalDequeue(Animal.Type.Dog);
 
             // Assert
-            Assert.Equal(Animal.Type.Dog, result.Value);
+            Assert.Equal(Animal.Type.Dog, result);
         }
 
         [Fact]
         public void Dequeue_returns_dog_or_cat_or_null()
         {
             // Arrange
-            AnimalShelter<object> shelter = new AnimalShelter<object>();
+            AnimalShelter shelter = new AnimalShelter();
             shelter.AnimalEnqueue(Animal.Type.Bird);
             shelter.AnimalEnqueue(Animal.Type.Dog);
             shelter.AnimalEnqueue(Animal.Type.Cat);
 
             // Act
-            AnimalShelter<object>.Node result = shelter.AnimalDequeue(Animal.Type.Bird);
+            Animal.Type? result = shelter.AnimalDequeue(Animal.Type.Bird);
 
             // Assert
-            Assert.Null(result);
+            Assert.Null(result); 
         }
-
-
 
     }
 }
