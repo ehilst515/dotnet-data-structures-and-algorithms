@@ -3,7 +3,7 @@ namespace Challenges.tests.Arrays
 {
     public class BinarySearch
     {
-        public static int Search(int[] array, int insertedValue)
+           public static int Search(int[] array, int insertedValue)
         {
             int low = 0;
             int high = array.Length - 1;
