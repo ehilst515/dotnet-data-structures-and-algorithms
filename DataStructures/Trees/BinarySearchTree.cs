@@ -83,24 +83,34 @@ namespace DataStructures.Trees
             return result.Remove(result.Length - 1, 1);
         }
 
-        public void InOrder(Node node)
-        {
-            while (node != null)
-            {
-                InOrder(node.Left);
-                Console.Write(node.Value + " ");
-                InOrder(node.Right);
-            }
-        }
-
-        public void PostOreder(Node node)
+        public string InOrder(StringBuilder sb, Node node)
         {
             if (node != null)
             {
-                PostOreder(node.Left);
-                PostOreder(node.Right);
-                Console.Write(node.Value + " ");
+                InOrder(sb, node.Left);
+                sb.Append(node.Value);
+                sb.Append(" ");
+                InOrder(sb, node.Right);
             }
+
+            string result = sb.ToString();
+
+            return result.Remove(result.Length - 1, 1);
+        }
+
+        public string PostOrder(StringBuilder sb, Node node)
+        {
+            if (node != null)
+            {
+                PostOrder(sb, node.Left);
+                PostOrder(sb, node.Right);
+                sb.Append(node.Value);
+                sb.Append(" ");
+            }
+
+            string result = sb.ToString();
+
+            return result.Remove(result.Length - 1, 1);
         }
     }
 }

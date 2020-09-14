@@ -64,7 +64,7 @@ namespace DataStructures.Tests
         }
 
         [Fact]
-        public void PreOrder_returns_values()
+        public void PreOrder_returns_values_as_strings()
         {
             // Arrange
             BinaryTree tree = new BinaryTree();
@@ -80,10 +80,58 @@ namespace DataStructures.Tests
             // Act
             string result = tree.PreOrder(sb, tree.Root);
 
-
             //Assert
             Assert.Equal("6 2 1 3 7 10", result);
         }
 
+        [Fact]
+        public void InOrder_returns_values_as_strings()
+        {
+            // Arrange
+            BinaryTree tree = new BinaryTree();
+            tree.Add(6);
+            tree.Add(2);
+            tree.Add(7);
+            tree.Add(3);
+            tree.Add(10);
+            tree.Add(1);
+            tree.Add(9);
+            tree.Add(20);
+
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" ");
+
+            // Act
+            string result = tree.InOrder(sb, tree.Root);
+
+            //Assert
+            Assert.Equal("1 2 3 6 7 9 10 20", result.Remove(0,1));
+        }
+
+        [Fact]
+        public void PostOrder_returns_values_as_strings()
+        {
+            // Arrange
+            BinaryTree tree = new BinaryTree();
+            tree.Add(6);
+            tree.Add(2);
+            tree.Add(7);
+            tree.Add(3);
+            tree.Add(10);
+            tree.Add(1);
+            tree.Add(9);
+            tree.Add(20);
+
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" ");
+
+            // Act
+            string result = tree.PostOrder(sb, tree.Root);
+
+            //Assert
+            Assert.Equal("1 3 2 9 20 10 7 6", result.Remove(0, 1));
+        }
     }
 }
