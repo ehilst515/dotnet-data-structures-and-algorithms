@@ -6,6 +6,7 @@ using Xunit;
 using DataStructures.Trees;
 using System.Transactions;
 using System.ComponentModel.Design.Serialization;
+using System.Linq;
 
 namespace DataStructures.Tests
 {
@@ -35,7 +36,6 @@ namespace DataStructures.Tests
             tree.Add(2);
             tree.Add(7);
 
-
             //Assert
             Assert.Equal(6, tree.Root.Value);
             Assert.Equal(2, tree.Root.Left.Value);
@@ -54,7 +54,6 @@ namespace DataStructures.Tests
             tree.Add(10);
             tree.Add(1);
 
-
             // Act
             bool trueResult = tree.Contains(tree.Root, 10);
             bool falseResult = tree.Contains(tree.Root, 11);
@@ -64,7 +63,27 @@ namespace DataStructures.Tests
             Assert.False(falseResult);
         }
 
+        [Fact]
+        public void PreOrder_returns_values()
+        {
+            // Arrange
+            BinaryTree tree = new BinaryTree();
+            tree.Add(6);
+            tree.Add(2);
+            tree.Add(7);
+            tree.Add(3);
+            tree.Add(10);
+            tree.Add(1);
 
+            StringBuilder sb = new StringBuilder();
+
+            // Act
+            string result = tree.PreOrder(sb, tree.Root);
+
+
+            //Assert
+            Assert.Equal("6 2 1 3 7 10", result);
+        }
 
     }
 }

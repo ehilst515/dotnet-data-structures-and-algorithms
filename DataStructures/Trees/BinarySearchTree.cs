@@ -16,7 +16,7 @@ namespace DataStructures.Trees
             Node newNode = new Node(value);
 
             if (Root == null)
-                Root = newNode;           
+                Root = newNode;
 
             else
             {
@@ -54,7 +54,7 @@ namespace DataStructures.Trees
         public bool Contains(Node current, int value)
         {
             if (Root == null || current == null)
-               return false;
+                return false;
 
             else
             {
@@ -66,6 +66,40 @@ namespace DataStructures.Trees
 
                 else
                     return Contains(current.Right, value);
+            }
+        }
+
+        public string PreOrder(StringBuilder sb, Node node)
+        {
+            if (node != null)
+            {
+                sb.Append(node.Value);
+                sb.Append(" ");
+                PreOrder(sb, node.Left);
+                PreOrder(sb, node.Right);
+            }
+            string result = sb.ToString();
+
+            return result.Remove(result.Length - 1, 1);
+        }
+
+        public void InOrder(Node node)
+        {
+            while (node != null)
+            {
+                InOrder(node.Left);
+                Console.Write(node.Value + " ");
+                InOrder(node.Right);
+            }
+        }
+
+        public void PostOreder(Node node)
+        {
+            if (node != null)
+            {
+                PostOreder(node.Left);
+                PostOreder(node.Right);
+                Console.Write(node.Value + " ");
             }
         }
     }
