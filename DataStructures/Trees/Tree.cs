@@ -8,7 +8,7 @@ namespace DataStructures.Trees
     class Tree
     {
         public Node Root { get; set; }
-        public int[] PreOreder(Node node)
+        public int[] PreOrder(Node node)
         {
             int[] result = new int[20];
             int i = 0;
