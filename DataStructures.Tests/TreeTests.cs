@@ -16,7 +16,7 @@ namespace DataStructures.Tests
         public void Add_Binary_Tree_can_add_to_empty_tree()
         {
             // Arrange
-            BinaryTree tree = new BinaryTree();
+            BinarySearchTree tree = new BinarySearchTree();
 
             // Act
             tree.Add(1);
@@ -29,7 +29,7 @@ namespace DataStructures.Tests
         public void Add_can_add_single_Left_and_Right_nodes()
         {
             // Arrange
-            BinaryTree tree = new BinaryTree();
+            BinarySearchTree tree = new BinarySearchTree();
 
             // Act
             tree.Add(6);
@@ -46,7 +46,7 @@ namespace DataStructures.Tests
         public void Contains_can_find_Node_value()
         {
             // Arrange
-            BinaryTree tree = new BinaryTree();
+            BinarySearchTree tree = new BinarySearchTree();
             tree.Add(6);
             tree.Add(2);
             tree.Add(7); 
@@ -67,7 +67,7 @@ namespace DataStructures.Tests
         public void PreOrder_returns_values_as_strings()
         {
             // Arrange
-            BinaryTree tree = new BinaryTree();
+            BinarySearchTree tree = new BinarySearchTree();
             tree.Add(6);
             tree.Add(2);
             tree.Add(7);
@@ -88,7 +88,7 @@ namespace DataStructures.Tests
         public void InOrder_returns_values_as_strings()
         {
             // Arrange
-            BinaryTree tree = new BinaryTree();
+            BinarySearchTree tree = new BinarySearchTree();
             tree.Add(6);
             tree.Add(2);
             tree.Add(7);
@@ -113,7 +113,7 @@ namespace DataStructures.Tests
         public void PostOrder_returns_values_as_strings()
         {
             // Arrange
-            BinaryTree tree = new BinaryTree();
+            BinarySearchTree tree = new BinarySearchTree();
             tree.Add(6);
             tree.Add(2);
             tree.Add(7);
