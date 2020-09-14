@@ -16,36 +16,36 @@ namespace DataStructures.Trees
             {
                 result[i] = node.Value;
                 i++;
-                PreOreder(node.Left);
-                PreOreder(node.Right);
+                PreOrder(node.Left);
+                PreOrder(node.Right);
             }
 
             return result;            
         }
 
-        public int[] InOreder(Node node)
+        public int[] InOrder(Node node)
         {
             int[] result = new int[20];
             int i = 0;
             if (node != null)
             {
-                PreOreder(node.Left);
+                PreOrder(node.Left);
                 result[i] = node.Value;
                 i++;
-                PreOreder(node.Right);
+                PreOrder(node.Right);
             }
 
             return result;
         }
 
-        public int[] PostOreder(Node node)
+        public int[] PostOrder(Node node)
         {
             int[] result = new int[20];
             int i = 0;
             if (node != null)
             {
-                PreOreder(node.Left);
-                PreOreder(node.Right);
+                PreOrder(node.Left);
+                PreOrder(node.Right);
                 result[i] = node.Value;
                 i++;
             }
