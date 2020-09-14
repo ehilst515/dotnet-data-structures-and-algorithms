@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataStructures.Trees
 {
-    public class BinaryTree
+    public class BinarySearchTree
     {
 
         public Node Root { get; set; }
