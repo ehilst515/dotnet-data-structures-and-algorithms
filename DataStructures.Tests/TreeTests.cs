@@ -36,6 +36,10 @@ namespace DataStructures.Tests
             tree.Add(2);
             tree.Add(7);
 
+            //    ___6___
+            //   /       \
+            //  2         7
+
             //Assert
             Assert.Equal(6, tree.Root.Value);
             Assert.Equal(2, tree.Root.Left.Value);
@@ -53,6 +57,13 @@ namespace DataStructures.Tests
             tree.Add(3);
             tree.Add(10);
             tree.Add(1);
+
+            //    ___6___
+            //   /       \
+            //  2         7
+            // / \         \
+            //1   3         10
+
 
             // Act
             bool trueResult = tree.Contains(tree.Root, 10);
@@ -74,6 +85,12 @@ namespace DataStructures.Tests
             tree.Add(3);
             tree.Add(10);
             tree.Add(1);
+
+            //    ___6___
+            //   /       \
+            //  2         7
+            // / \         \
+            //1   3         10
 
             StringBuilder sb = new StringBuilder();
 
@@ -97,6 +114,14 @@ namespace DataStructures.Tests
             tree.Add(1);
             tree.Add(9);
             tree.Add(20);
+
+            //    ___6___
+            //   /       \
+            //  2         7
+            // / \       /  \
+            //1   3     9   10
+            //                \
+            //                 20
 
 
             StringBuilder sb = new StringBuilder();
@@ -123,6 +148,14 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
+            //    ___6___
+            //   /       \
+            //  2         7
+            // / \       /  \
+            //1   3     9   10
+            //                \
+            //                 20
+
 
             StringBuilder sb = new StringBuilder();
             sb.Append(" ");
@@ -148,14 +181,53 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
+            //    ___6___
+            //   /       \
+            //  2         7
+            // / \       /  \
+            //1   3     9   10
+            //                \
+            //                 20
+
             // Act
             int result = tree.FindMaxValue(tree.Root);
 
             // Assert
             Assert.Equal(20, result);
-
         }
 
+        [Fact]
+        public void Breadth_First_returns_tree_value_in_level_order()
+        {
+            // Arrange
+            BinaryTree tree = new BinaryTree();
+            tree.Add(6);
+            tree.Add(2);
+            tree.Add(7);
+            tree.Add(3);
+            tree.Add(10);
+            tree.Add(1);
+            tree.Add(9);
+            tree.Add(20);
+
+            //    ___6___
+            //   /       \
+            //  2         7
+            // / \         \
+            //1   3         10
+            //             /  \
+            //            9    20
+
+            //Breadth_First list: 6, 2, 7, 1, 3, 10, 9, 20
+
+            // Act
+            IEnumerable<int> result = tree.Breadth_First();
+
+            // Assert
+            int[] expected = new int[] { 6, 2, 7, 1, 3, 10, 9, 20 };
+            Assert.Equal(expected, result);
+
+        }
 
     }
 }
