@@ -133,5 +133,29 @@ namespace DataStructures.Tests
             //Assert
             Assert.Equal("1 3 2 9 20 10 7 6", result.Remove(0, 1));
         }
+
+        [Fact]
+        public void FindFindMaxValue_returns_max_int() 
+        {
+            // Arrange
+            BinaryTree tree = new BinaryTree();
+            tree.Add(6);
+            tree.Add(2);
+            tree.Add(7);
+            tree.Add(3);
+            tree.Add(10);
+            tree.Add(1);
+            tree.Add(9);
+            tree.Add(20);
+
+            // Act
+            int result = tree.FindMaxValue(tree.Root);
+
+            // Assert
+            Assert.Equal(20, result);
+
+        }
+
+
     }
 }
