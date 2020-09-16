@@ -3,11 +3,11 @@ using System.Text;
 
 namespace DataStructures.Trees
 {
-    public class BinaryTree
+    public class BinaryTree<T>
     {
-        public Node Root { get; set; }
+        public Node<T> Root { get; set; }
 
-        public string PreOrder(StringBuilder sb, Node node)
+        public string PreOrder(StringBuilder sb, Node<T> node)
         {
             if (node != null)
             {
@@ -21,7 +21,7 @@ namespace DataStructures.Trees
             return result.Remove(result.Length - 1, 1);
         }
 
-        public string InOrder(StringBuilder sb, Node node)
+        public string InOrder(StringBuilder sb, Node<T> node)
         {
             if (node != null)
             {
@@ -36,7 +36,7 @@ namespace DataStructures.Trees
             return result.Remove(result.Length - 1, 1);
         }
 
-        public string PostOrder(StringBuilder sb, Node node)
+        public string PostOrder(StringBuilder sb, Node<T> node)
         {
             if (node != null)
             {
@@ -51,38 +51,20 @@ namespace DataStructures.Trees
             return result.Remove(result.Length - 1, 1);
         }
 
-        public int FindMaxValue(Node current)
-        {
-            if (current == null)
-                return 0;
+        public IEnumerable<T> Breadth_First() => Breadth_First_Helper(Root);
 
-            int result = current.Value;
-
-            int leftResult = FindMaxValue(current.Left);
-            int rightResult = FindMaxValue(current.Right);
-
-            if (leftResult > result)
-                result = leftResult;
-            if (rightResult > result)
-                result = rightResult;
-
-            return result;
-        }
-
-        public IEnumerable<int> Breadth_First() => Breadth_First_Helper(Root);
-
-        private IEnumerable<int> Breadth_First_Helper(Node current)
+        private IEnumerable<T> Breadth_First_Helper(Node<T> current)
         {
             if (current == null)
                 yield break;
 
-            Queue<Node> queue = new Queue<Node>();
-            Queue<Node> queueResult = new Queue<Node>();
+            var queue = new Queue<Node<T>>();
+            var queueResult = new Queue<Node<T>>();
 
             queue.Enqueue(current);
             while (queue.Count > 0)
             {
-                Node DequeuedNode = queue.Dequeue();
+                var DequeuedNode = queue.Dequeue();
                 queueResult.Enqueue(DequeuedNode);
 
                 if (DequeuedNode.Left != null)

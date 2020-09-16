@@ -1,17 +1,17 @@
 ﻿namespace DataStructures.Trees
 {
-    public class BinarySearchTree : BinaryTree
+    public class BinarySearchTree : NumberTree
     {
         public void Add(int value)
         {
-            Node newNode = new Node(value);
+            var newNode = new Node<int>(value);
 
             if (Root == null)
                 Root = newNode;
             else
             {
-                Node current = Root;
-                Node Prev;
+                var current = Root;
+                Node<int> Prev;
                 while (true)
                 {
                     Prev = current;
@@ -40,7 +40,9 @@
             }
         }
 
-        public bool Contains(Node current, int value)
+        // public bool Contains(int value) => Contains(Root, value);
+
+        public bool Contains(Node<int> current, int value)
         {
             if (Root == null || current == null)
                 return false;
