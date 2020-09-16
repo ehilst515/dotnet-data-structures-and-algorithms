@@ -1,12 +1,7 @@
-﻿using Challenges.tests.Arrays;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
-using Xunit;
 using DataStructures.Trees;
-using System.Transactions;
-using System.ComponentModel.Design.Serialization;
-using System.Linq;
+using Xunit;
 
 namespace DataStructures.Tests
 {
@@ -53,7 +48,7 @@ namespace DataStructures.Tests
             BinarySearchTree tree = new BinarySearchTree();
             tree.Add(6);
             tree.Add(2);
-            tree.Add(7); 
+            tree.Add(7);
             tree.Add(3);
             tree.Add(10);
             tree.Add(1);
@@ -63,7 +58,6 @@ namespace DataStructures.Tests
             //  2         7
             // / \         \
             //1   3         10
-
 
             // Act
             bool trueResult = tree.Contains(tree.Root, 10);
@@ -123,7 +117,6 @@ namespace DataStructures.Tests
             //                \
             //                 20
 
-
             StringBuilder sb = new StringBuilder();
             sb.Append(" ");
 
@@ -131,7 +124,7 @@ namespace DataStructures.Tests
             string result = tree.InOrder(sb, tree.Root);
 
             //Assert
-            Assert.Equal("1 2 3 6 7 9 10 20", result.Remove(0,1));
+            Assert.Equal("1 2 3 6 7 9 10 20", result.Remove(0, 1));
         }
 
         [Fact]
@@ -156,7 +149,6 @@ namespace DataStructures.Tests
             //                \
             //                 20
 
-
             StringBuilder sb = new StringBuilder();
             sb.Append(" ");
 
@@ -168,10 +160,10 @@ namespace DataStructures.Tests
         }
 
         [Fact]
-        public void FindFindMaxValue_returns_max_int() 
+        public void FindFindMaxValue_returns_max_int()
         {
             // Arrange
-            BinaryTree tree = new BinaryTree();
+            BinarySearchTree tree = new BinarySearchTree();
             tree.Add(6);
             tree.Add(2);
             tree.Add(7);
@@ -200,7 +192,7 @@ namespace DataStructures.Tests
         public void Breadth_First_returns_tree_value_in_level_order()
         {
             // Arrange
-            BinaryTree tree = new BinaryTree();
+            BinarySearchTree tree = new BinarySearchTree();
             tree.Add(6);
             tree.Add(2);
             tree.Add(7);
@@ -226,8 +218,6 @@ namespace DataStructures.Tests
             // Assert
             int[] expected = new int[] { 6, 2, 7, 1, 3, 10, 9, 20 };
             Assert.Equal(expected, result);
-
         }
-
     }
 }

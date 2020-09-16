@@ -1,45 +1,70 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Transactions;
 
 namespace DataStructures.Trees
 {
-    public class BinaryTree : BinarySearchTree
+    public class BinaryTree<T>
     {
-        public int FindMaxValue(Node current)
+        public Node<T> Root { get; set; }
+
+        public string PreOrder(StringBuilder sb, Node<T> node)
         {
-            if (current == null)
-                return 0;
+            if (node != null)
+            {
+                sb.Append(node.Value);
+                sb.Append(" ");
+                PreOrder(sb, node.Left);
+                PreOrder(sb, node.Right);
+            }
+            string result = sb.ToString();
 
-            int result = current.Value;
-
-            int leftResult = FindMaxValue(current.Left);
-            int rightResult = FindMaxValue(current.Right);
-
-            if (leftResult > result)
-                result = leftResult;
-            if (rightResult > result)
-                result = rightResult;
-
-            return result;
+            return result.Remove(result.Length - 1, 1);
         }
 
-        public IEnumerable<int> Breadth_First() => Breadth_First_Helper(Root);
+        public string InOrder(StringBuilder sb, Node<T> node)
+        {
+            if (node != null)
+            {
+                InOrder(sb, node.Left);
+                sb.Append(node.Value);
+                sb.Append(" ");
+                InOrder(sb, node.Right);
+            }
 
+            string result = sb.ToString();
 
-        IEnumerable<int> Breadth_First_Helper(Node current)
+            return result.Remove(result.Length - 1, 1);
+        }
+
+        public string PostOrder(StringBuilder sb, Node<T> node)
+        {
+            if (node != null)
+            {
+                PostOrder(sb, node.Left);
+                PostOrder(sb, node.Right);
+                sb.Append(node.Value);
+                sb.Append(" ");
+            }
+
+            string result = sb.ToString();
+
+            return result.Remove(result.Length - 1, 1);
+        }
+
+        public IEnumerable<T> Breadth_First() => Breadth_First_Helper(Root);
+
+        private IEnumerable<T> Breadth_First_Helper(Node<T> current)
         {
             if (current == null)
                 yield break;
 
-            Queue<Node> queue = new Queue<Node>();
-            Queue<Node> queueResult = new Queue<Node>();
+            var queue = new Queue<Node<T>>();
+            var queueResult = new Queue<Node<T>>();
 
             queue.Enqueue(current);
             while (queue.Count > 0)
             {
-                Node DequeuedNode = queue.Dequeue();
+                var DequeuedNode = queue.Dequeue();
                 queueResult.Enqueue(DequeuedNode);
 
                 if (DequeuedNode.Left != null)
@@ -50,7 +75,7 @@ namespace DataStructures.Trees
             }
 
             while (queueResult.Count > 0)
-                yield return queueResult.Dequeue().Value;              
+                yield return queueResult.Dequeue().Value;
         }
     }
 }

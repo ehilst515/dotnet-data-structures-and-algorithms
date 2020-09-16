@@ -1,9 +1,7 @@
-﻿namespace DataStructures
+﻿namespace DataStructures.LinkedLists
 {
     public class Node
     {
-        private string stringValue;
-
         public Node(int value)
         {
             Value = value;
