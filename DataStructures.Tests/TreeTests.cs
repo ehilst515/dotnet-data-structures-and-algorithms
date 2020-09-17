@@ -53,11 +53,11 @@ namespace DataStructures.Tests
             tree.Add(10);
             tree.Add(1);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \         \
-            //1   3         10
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \         \
+            // 1   3         10
 
             // Act
             bool trueResult = tree.Contains(tree.Root, 10);
@@ -80,11 +80,11 @@ namespace DataStructures.Tests
             tree.Add(10);
             tree.Add(1);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \         \
-            //1   3         10
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \         \
+            // 1   3         10
 
             StringBuilder sb = new StringBuilder();
 
@@ -109,13 +109,13 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \       /  \
-            //1   3     9   10
-            //                \
-            //                 20
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \       /  \
+            // 1   3     9   10
+            //                 \
+            //                  20
 
             StringBuilder sb = new StringBuilder();
             sb.Append(" ");
@@ -141,13 +141,13 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \       /  \
-            //1   3     9   10
-            //                \
-            //                 20
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \       /  \
+            // 1   3     9   10
+            //                 \
+            //                  20
 
             StringBuilder sb = new StringBuilder();
             sb.Append(" ");
@@ -173,13 +173,13 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \       /  \
-            //1   3     9   10
-            //                \
-            //                 20
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \       /  \
+            // 1   3     9   10
+            //                 \
+            //                  20
 
             // Act
             int result = tree.FindMaxValue(tree.Root);
@@ -202,13 +202,13 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \         \
-            //1   3         10
-            //             /  \
-            //            9    20
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \         \
+            // 1   3         10
+            //              /  \
+            //             9    20
 
             //Breadth_First list: 6, 2, 7, 1, 3, 10, 9, 20
 
