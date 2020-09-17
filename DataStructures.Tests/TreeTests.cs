@@ -53,11 +53,11 @@ namespace DataStructures.Tests
             tree.Add(10);
             tree.Add(1);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \         \
-            //1   3         10
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \         \
+            // 1   3         10
 
             // Act
             bool trueResult = tree.Contains(tree.Root, 10);
@@ -80,11 +80,11 @@ namespace DataStructures.Tests
             tree.Add(10);
             tree.Add(1);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \         \
-            //1   3         10
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \         \
+            // 1   3         10
 
             StringBuilder sb = new StringBuilder();
 
@@ -109,13 +109,13 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \       /  \
-            //1   3     9   10
-            //                \
-            //                 20
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \       /  \
+            // 1   3     9   10
+            //                 \
+            //                  20
 
             StringBuilder sb = new StringBuilder();
             sb.Append(" ");
@@ -141,13 +141,13 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \       /  \
-            //1   3     9   10
-            //                \
-            //                 20
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \       /  \
+            // 1   3     9   10
+            //                 \
+            //                  20
 
             StringBuilder sb = new StringBuilder();
             sb.Append(" ");
@@ -173,13 +173,13 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \       /  \
-            //1   3     9   10
-            //                \
-            //                 20
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \       /  \
+            // 1   3     9   10
+            //                 \
+            //                  20
 
             // Act
             int result = tree.FindMaxValue(tree.Root);
@@ -202,13 +202,13 @@ namespace DataStructures.Tests
             tree.Add(9);
             tree.Add(20);
 
-            //    ___6___
-            //   /       \
-            //  2         7
-            // / \         \
-            //1   3         10
-            //             /  \
-            //            9    20
+            //     ___6___
+            //    /       \
+            //   2         7
+            //  / \         \
+            // 1   3         10
+            //              /  \
+            //             9    20
 
             //Breadth_First list: 6, 2, 7, 1, 3, 10, 9, 20
 
@@ -217,6 +217,46 @@ namespace DataStructures.Tests
 
             // Assert
             int[] expected = new int[] { 6, 2, 7, 1, 3, 10, 9, 20 };
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void FizzBuzz_returns_new_FB_Tree()
+        {
+            // Input:
+            //     4
+            //   3    5
+            // 1  2     6
+            //            10
+            //               15
+
+            // Output:
+            //           4
+            //    Fizz      Buzz
+            //  1     2          Fizz
+            //                      Buzz
+            //                         FizzBuzz 
+
+            // Arrange
+            BinaryTree<int> tree = new BinaryTree<int>();
+            // Root
+            tree.Root = new Node<int>(4);
+            // Left of Root
+            tree.Root.Left = new Node<int>(3);
+            tree.Root.Left.Left = new Node<int>(1);
+            tree.Root.Left.Right = new Node<int>(2);
+            // Right of Root
+            tree.Root.Right = new Node<int>(5);
+            tree.Root.Right.Right = new Node<int>(6);
+            tree.Root.Right.Right.Right = new Node<int>(10);
+            tree.Root.Right.Right.Right.Right = new Node<int>(15);
+
+            // Act
+            BinaryTree<string> resultTree = FizzBuzzTree.FizzBuzz(tree);
+            IEnumerable<string> result = resultTree.Breadth_First();
+
+            // Assert
+            string[] expected = new string[] { "4", "Fizz", "Buzz", "1", "2", "Fizz", "Buzz", "FizzBuzz" };
             Assert.Equal(expected, result);
         }
     }
