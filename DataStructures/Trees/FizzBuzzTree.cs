@@ -2,20 +2,6 @@
 {
     public class FizzBuzzTree : BinaryTree<string>
     {
-        // Input:
-        //     4
-        //   3    5
-        // 1  2     6
-        //            10
-        //               15
-
-        // Output:
-        //           4
-        //    Fizz      Buzz
-        //  1     2          Fizz
-        //                      Buzz
-        //                         FizzBuzz 
-
         public static BinaryTree<string> FizzBuzz(BinaryTree<int> numberTree) 
         {
             if (numberTree.Root == null)

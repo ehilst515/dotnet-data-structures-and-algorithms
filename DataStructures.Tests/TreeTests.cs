@@ -223,14 +223,29 @@ namespace DataStructures.Tests
         [Fact]
         public void FizzBuzz_returns_new_FB_Tree()
         {
+            // Input:
+            //     4
+            //   3    5
+            // 1  2     6
+            //            10
+            //               15
+
+            // Output:
+            //           4
+            //    Fizz      Buzz
+            //  1     2          Fizz
+            //                      Buzz
+            //                         FizzBuzz 
+
             // Arrange
             BinaryTree<int> tree = new BinaryTree<int>();
+            // Root
             tree.Root = new Node<int>(4);
-
+            // Left of Root
             tree.Root.Left = new Node<int>(3);
             tree.Root.Left.Left = new Node<int>(1);
             tree.Root.Left.Right = new Node<int>(2);
-
+            // Right of Root
             tree.Root.Right = new Node<int>(5);
             tree.Root.Right.Right = new Node<int>(6);
             tree.Root.Right.Right.Right = new Node<int>(10);
