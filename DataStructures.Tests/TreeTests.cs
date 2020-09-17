@@ -219,5 +219,30 @@ namespace DataStructures.Tests
             int[] expected = new int[] { 6, 2, 7, 1, 3, 10, 9, 20 };
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void FizzBuzz_returns_new_FB_Tree()
+        {
+            // Arrange
+            BinaryTree<int> tree = new BinaryTree<int>();
+            tree.Root = new Node<int>(4);
+
+            tree.Root.Left = new Node<int>(3);
+            tree.Root.Left.Left = new Node<int>(1);
+            tree.Root.Left.Right = new Node<int>(2);
+
+            tree.Root.Right = new Node<int>(5);
+            tree.Root.Right.Right = new Node<int>(6);
+            tree.Root.Right.Right.Right = new Node<int>(10);
+            tree.Root.Right.Right.Right.Right = new Node<int>(15);
+
+            // Act
+            BinaryTree<string> resultTree = FizzBuzzTree.FizzBuzz(tree);
+            IEnumerable<string> result = resultTree.Breadth_First();
+
+            // Assert
+            string[] expected = new string[] { "4", "Fizz", "Buzz", "1", "2", "Fizz", "Buzz", "FizzBuzz" };
+            Assert.Equal(expected, result);
+        }
     }
 }

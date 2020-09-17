@@ -1,41 +1,47 @@
-﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Xml.Schema;
-
-namespace DataStructures.Trees
+﻿namespace DataStructures.Trees
 {
-    class FizzBuzzTree : BinaryTree<string>
+    public class FizzBuzzTree : BinaryTree<string>
     {
+        // Input:
         //     4
         //   3    5
         // 1  2     6
         //            10
         //               15
 
+        // Output:
         //           4
         //    Fizz      Buzz
         //  1     2          Fizz
         //                      Buzz
         //                         FizzBuzz 
 
-
-
-        public void FizzBuzz(BinaryTree<int> numberTree) //need to return BinaryTree<string>
+        public static BinaryTree<string> FizzBuzz(BinaryTree<int> numberTree) 
         {
+            if (numberTree.Root == null)
+                return null;
+            if (numberTree.Root.Value.GetType() != typeof(int))
+                return null;
+
             Node<int> current = numberTree.Root;
+            BinaryTree<string> resultTree = new BinaryTree<string>();
 
-            BinaryTree<string> stringTree = new BinaryTree<string>();
-
-            stringTree.Root = new Node<string>(FizzBuzzConverter(current.Value));
-
-            if(Root.Left != null)
+            resultTree.Root = new Node<string>(FizzBuzzConverter(current.Value));
+            if (current.Left != null)
             {
-                stringTree.Root.Left = new Node<string>(FizzBuzzConverter(current.Left.Value));
-
+                resultTree.Root.Left = new Node<string>(FizzBuzzConverter(current.Left.Value));
+                FizzBuzzBuilder(current.Left, resultTree.Root.Left, resultTree);
+            }
+            if (current.Right != null)
+            {
+                resultTree.Root.Right = new Node<string>(FizzBuzzConverter(current.Right.Value));
+                FizzBuzzBuilder(current.Right, resultTree.Root.Right, resultTree);
             }
 
-
+            return resultTree;
         }
+
+
         public static BinaryTree<string> FizzBuzzBuilder(Node<int> current, Node<string> stringNode, BinaryTree<string> resultTree)
         {
             Node<string> prev = stringNode;
@@ -56,8 +62,6 @@ namespace DataStructures.Trees
 
             return resultTree;
         }
-    
-
 
         public static string FizzBuzzConverter(int number)
         {   
