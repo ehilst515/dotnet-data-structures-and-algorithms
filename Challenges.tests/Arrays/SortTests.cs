@@ -25,7 +25,6 @@ namespace Challenges.tests.Arrays
                 Assert.Equal(expected, result);
             }
 
-
         }
 
     }
