@@ -46,3 +46,13 @@ On the fourth pass, 16 is checked against 42, moved to the left, against 23, mov
 The fifth pass is similar to the fourth.
 
 Output: `[4,8,15,16,23,42]`
+
+## Efficiency
+Time: O(n^2)
+
+The basic operation of this algorithm is comparison. This will happen n * (n-1) number of times…concluding the algorithm to be n squared.
+
+
+Space: O(1)
+
+No additional space is being created. This array is being sorted in place…keeping the space at constant O(1).
