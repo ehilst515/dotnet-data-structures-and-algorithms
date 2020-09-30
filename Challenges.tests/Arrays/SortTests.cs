@@ -6,7 +6,7 @@ namespace Challenges.tests.Arrays
 {
     public class SortTests
     {
-        public class InsertionTest
+        public class InsertionSortTest
         {
             [Theory]
             [InlineData(new[] { 23, 75, 101, 4 }, new int[] { 4, 23, 75, 101 })]
@@ -26,6 +26,25 @@ namespace Challenges.tests.Arrays
             }
 
         }
+
+        /* Currently not passing */
+        //public class MergeSortTest
+        //{
+        //    [Theory]
+        //    [InlineData(new[] { 23, 75, 101, 4}, new int[] { 4, 23, 75, 101 })]
+        //    public void Insertion_array_in_order(int[] newArray, int[] expected)
+        //    {
+        //        // Arrange
+        //        // InlineData
+
+        //        // Act
+        //        int[] result = MergeSort.MergeSorter(newArray);
+
+        //        //Assert
+        //        Assert.Equal(expected, result);
+        //    }
+
+        //}
 
     }
 }
