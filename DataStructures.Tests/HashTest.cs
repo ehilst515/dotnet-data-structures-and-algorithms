@@ -14,7 +14,7 @@ namespace DataStructures.Tests
         public void GetHash_returns_hash_number()
         {
             // Arrange and Act
-            int result = HashTable.HashTable<ValueType>.GetHash("Hi");
+            int result = HashTable<ValueType>.GetHash("Hi");
 
             // Assert
             int expected = 1239;
@@ -25,14 +25,14 @@ namespace DataStructures.Tests
         public void Add_adds_to_hash_table()
         {
             // Arrange
-            LinkedList<string>[] HT = new LinkedList<string>[10];
+            HashTable<string> HT = new HashTable<string>();
             string value = "Hi";
 
             // Act
-            HashTable<string>.Add("1239", value , HT);
+            HT.Add("1239", value);
 
             // Assert
-            string expected = HashTable<string>.HashFind("1239", HT);
+            string expected = HT.HashFind("1239");
             Assert.Equal(expected, value);
         }
 

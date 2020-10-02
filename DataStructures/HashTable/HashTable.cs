@@ -7,6 +7,8 @@ namespace DataStructures.HashTable
 {
     public class HashTable<TValue>
     {
+        LinkedList<TValue>[] HT  = new LinkedList<TValue>[3];
+
         public static int GetHash(string key)
         {
             int[] keyNumArr = new int[key.Length];
@@ -26,7 +28,7 @@ namespace DataStructures.HashTable
             return hashNum;       
         }
 
-        public static void Add(string key, TValue value, LinkedList<TValue>[] HT)
+        public void Add(string key, TValue value)
         {
             int bucketNum = GetHash(key) % HT.Length;
             var bucket = HT[bucketNum];
@@ -41,36 +43,16 @@ namespace DataStructures.HashTable
                 bucket.AddFirst(value);
         }
 
-        public static string HashFind(string key, LinkedList<string>[] HT)
+        public TValue HashFind(string key)
         {
             int hashNumber = GetHash(key);
             int bucketNumber = hashNumber % HT.Length;
 
-
             if (HT[bucketNumber] == null)
-                return null;
+                throw new KeyNotFoundException();
 
             else
                 return HT[bucketNumber].First();
-
-
-        }
-
-        public class Node<T>
-        {
-            public Node(T value, string key)
-            {
-                Value = value;
-                Key = key;
-            }
-
-            // Hash Key
-            public string Key { get; set; }
-            // Value of this node
-            public T Value { get; set; }
-            // Pointer to the next node in the list
-            public Node<T> Next { get; set; }
-
         }
     }
       
