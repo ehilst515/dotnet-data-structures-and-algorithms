@@ -21,18 +21,20 @@ namespace DataStructures.Tests
             Assert.Equal(expected, result);
         }
 
-        [Fact]
-        public void Add_adds_to_hash_table()
+        [Theory]
+        [InlineData("Hi", "1239")]
+        [InlineData("Test", "1564")]
+        [InlineData("Blue", "42")]
+        public void Add_adds_to_hash_table(string value, string key)
         {
             // Arrange
             HashTable<string> HT = new HashTable<string>();
-            string value = "Hi";
 
             // Act
-            HT.Add("1239", value);
+            HT.Add(key, value);
 
             // Assert
-            string expected = HT.HashFind("1239");
+            string expected = HT.HashFind(key);
             Assert.Equal(expected, value);
         }
 

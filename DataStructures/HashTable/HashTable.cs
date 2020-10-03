@@ -32,15 +32,8 @@ namespace DataStructures.HashTable
         {
             int bucketNum = GetHash(key) % HT.Length;
             var bucket = HT[bucketNum];
-
-            if (bucket == null)
-            {
-                LinkedList<TValue> newLinkedList = new LinkedList<TValue>();
-                newLinkedList.AddFirst(value);
-            }
-
-            else
-                bucket.AddFirst(value);
+            LinkedListNode<TValue> newNode = new LinkedListNode<TValue>(value);
+            bucket.AddLast(newNode);
         }
 
         public TValue HashFind(string key)
