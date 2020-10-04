@@ -7,7 +7,7 @@ namespace DataStructures.HashTable
 {
     public class HashTable<TValue>
     {
-        LinkedList<TValue>[] HT  = new LinkedList<TValue>[3];
+        public static LinkedList<TValue>[] HT  = new LinkedList<TValue>[3];
 
         public static int GetHash(string key)
         {
@@ -21,8 +21,6 @@ namespace DataStructures.HashTable
                 sum += n;
 
             int prime = 7;
- 
-
             int hashNum = sum * prime;
 
             return hashNum;       
@@ -31,9 +29,14 @@ namespace DataStructures.HashTable
         public void Add(string key, TValue value)
         {
             int bucketNum = GetHash(key) % HT.Length;
-            var bucket = HT[bucketNum];
             LinkedListNode<TValue> newNode = new LinkedListNode<TValue>(value);
-            bucket.AddLast(newNode);
+            if (HT[bucketNum] == null)
+            {
+                HT[bucketNum] = new LinkedList<TValue>();
+                HT[bucketNum].AddFirst(newNode);
+            }
+            else
+                HT[bucketNum].AddFirst(newNode);
         }
 
         public TValue HashFind(string key)
