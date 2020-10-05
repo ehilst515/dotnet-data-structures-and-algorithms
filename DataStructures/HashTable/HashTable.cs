@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DataStructures.HashTable
 {
     public class HashTable<TValue>
     {
-        public static LinkedList<TValue>[] HT  = new LinkedList<TValue>[3];
+        public static LinkedList<TValue>[] HT  = new LinkedList<TValue>[100];
 
         public static int GetHash(string key)
         {
@@ -49,6 +47,18 @@ namespace DataStructures.HashTable
 
             else
                 return HT[bucketNumber].First();
+        }
+
+        public bool Contains(string key, TValue value)
+        {
+            int hashNumber = GetHash(key);
+            int bucketNumber = hashNumber % HT.Length;
+            var bucket = HT[bucketNumber];
+
+            if (bucket.Contains(value))
+                return true;
+            else
+                return false;
         }
     }
       
