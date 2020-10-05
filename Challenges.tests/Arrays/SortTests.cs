@@ -28,23 +28,23 @@ namespace Challenges.tests.Arrays
         }
 
         
-        public class MergeSortTest
-        {
-            [Theory]
-            [InlineData(new[] { 23, 75, 101, 4 }, new int[] { 4, 23, 75, 101 })]
-            public void Insertion_array_in_order(int[] newArray, int[] expected)
-            {
-                // Arrange
-                // InlineData
+        //public class MergeSortTest
+        //{
+        //    [Theory]
+        //    [InlineData(new[] { 23, 75, 101, 4 }, new int[] { 4, 23, 75, 101 })]
+        //    public void Insertion_array_in_order(int[] newArray, int[] expected)
+        //    {
+        //        // Arrange
+        //        // InlineData
 
-                // Act
-                int[] result = MergeSort.MergeSorter(newArray);
+        //        // Act
+        //        int[] result = MergeSort.MergeSorter(newArray);
 
-                //Assert
-                Assert.Equal(expected, result);
-            }
+        //        //Assert
+        //        Assert.Equal(expected, result);
+        //    }
 
-        }
+        //}
 
     }
 }
