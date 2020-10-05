@@ -31,7 +31,7 @@ On the first pass, we check to see if 4 is smaller than 8. It is, so 4 becomes t
 
 2nd pass: [4,8,**23**,42,16,15]
 
-On the second pass, we check to see if 23 is less than 8. It is not, so it's inserted back where it was found.
+On the second pass, we check to see if 23 is less than 8. It is not, so it's left where it was found.
 
 3rd pass: [4,8,23,**42**,16,15]
 
