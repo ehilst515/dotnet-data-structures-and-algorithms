@@ -7,10 +7,12 @@ namespace DataStructures.Trees
 {
     public class TreeIntersection<T>
     {
-        public static Dictionary<int, int> hashTable = new Dictionary<int, int>();
+
 
         public static List<int> TreeIntersect(BinaryTree<int> tree1, BinaryTree<int> tree2)
         {
+            var hashTable = new Dictionary<int, int>();
+
             List<int> resultList = new List<int>();
 
             var list = tree1.Breadth_First();
