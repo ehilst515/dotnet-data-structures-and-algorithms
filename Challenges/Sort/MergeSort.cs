@@ -18,10 +18,10 @@
             if (arr.Length % 2 == 0)
                 rightArr = new int[mid];
             else
-                rightArr = new int[mid + 1];
+                rightArr = new int[arr.Length - mid];
 
             for (int i = 0; i < mid; i++)
-                leftArr[i] = arr[i + mid];
+                leftArr[i] = arr[i];
 
             int x = 0;
 
@@ -64,13 +64,13 @@
                         k++;
                     }
                 }
-                else if (i == leftArr.Length)
+                else if (i < leftArr.Length)
                 {
                     result[k] = leftArr[i];
                     i++;
                     k++;
                 }
-                else if (j == rightArr.Length)
+                else if (j < rightArr.Length)
                 {
                     result[k] = rightArr[j];
                     j++;

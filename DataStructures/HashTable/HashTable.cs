@@ -5,7 +5,7 @@ namespace DataStructures.HashTable
 {
     public class HashTable<TValue>
     {
-        public static LinkedList<TValue>[] HT  = new LinkedList<TValue>[100];
+        public LinkedList<TValue>[] HT  = new LinkedList<TValue>[100];
 
         public static int GetHash(string key)
         {
