@@ -23,18 +23,6 @@ namespace DataStructures.HashTable
                 result.Add(resultArray);
             }
 
-            //for (int i = 0; i < result.Count; i++)
-            //{
-            //        if(result[i].Contains(keyCollection2.ElementAt(i)) == false)
-            //        {
-            //            string[] resultArray = new string[3];
-            //            resultArray[0] = keyCollection2.ElementAt(i);
-            //            resultArray[1] = null;
-            //            resultArray[2] = Word(keyCollection2.ElementAt(i), HT2);
-            //            result.Add(resultArray);
-            //        }
-            //}
-
             return result;
         }
 
