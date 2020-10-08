@@ -10,6 +10,7 @@ namespace DataStructures.HashTable
         public List<string[]> LeftJoiner(Dictionary<string, string> HT1, Dictionary<string, string> HT2)
         {
             var keyCollection1 = HT1.Keys;
+            var keyCollection2 = HT2.Keys;
 
             List<string[]> result = new List<string[]>();
 
@@ -22,15 +23,17 @@ namespace DataStructures.HashTable
                 result.Add(resultArray);
             }
 
-            var keyCollection2 = HT2.Keys;
-
-            for (int i = 0; i < keyCollection2.Count; i++)
-            {
-                string[] resultArray = new string[3];
-                resultArray[0] = keyCollection2.ElementAt(i);
-                resultArray[1] = null;
-                resultArray[2] = Word(keyCollection2.ElementAt(i), HT2);
-            }
+            //for (int i = 0; i < result.Count; i++)
+            //{
+            //        if(result[i].Contains(keyCollection2.ElementAt(i)) == false)
+            //        {
+            //            string[] resultArray = new string[3];
+            //            resultArray[0] = keyCollection2.ElementAt(i);
+            //            resultArray[1] = null;
+            //            resultArray[2] = Word(keyCollection2.ElementAt(i), HT2);
+            //            result.Add(resultArray);
+            //        }
+            //}
 
             return result;
         }

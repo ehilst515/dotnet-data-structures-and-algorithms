@@ -159,19 +159,21 @@ namespace DataStructures.Tests
             List<string[]> result = leftJoin.LeftJoiner(HT1, HT2);
 
             // Assert
-            // Expected: [["fond", "enamored", "averse"], ["wrath", "anger", "delight"], ["diligent", "employed", "idle"], ["outfit", "garb", null], ["guide", "usher", "follow"]]
+            // Expected: [["fond", "enamored", "averse"], ["wrath", "anger", "delight"], ["diligent", "employed", "idle"], ["outfit", "garb", null], ["guide", "usher", "follow"] , ["flow", null, "jam"]]
             List<string[]> expected = new List<string[]>();
             string[] expectedArray1 = new string[3] { "fond", "enamored", "averse" };
             string[] expectedArray2 = new string[3] { "wrath", "anger", "delight" };
             string[] expectedArray3 = new string[3] { "diligent", "employed", "idle" };
             string[] expectedArray4 = new string[3] { "outfit", "garb", null };
             string[] expectedArray5 = new string[3] { "guide", "usher", "follow" };
+            string[] expectedArray6 = new string[3] { "flow", null, "jam" };
 
             expected.Add(expectedArray1);
             expected.Add(expectedArray2);
             expected.Add(expectedArray3);
             expected.Add(expectedArray4);
             expected.Add(expectedArray5);
+            //expected.Add(expectedArray6);
 
             Assert.Equal(expected, result);
         }
