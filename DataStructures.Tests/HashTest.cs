@@ -42,6 +42,7 @@ namespace DataStructures.Tests
         [Fact]
         public void TreeIntersect_returns_duplicate()
         {
+            // Arrange
             BinaryTree<int> tree1 = new BinaryTree<int>();
             BinaryTree<int> tree2 = new BinaryTree<int>();
 
@@ -52,8 +53,10 @@ namespace DataStructures.Tests
             tree1.Root.Right = new Node<int>(3);
             tree2.Root.Right = new Node<int>(4);
 
+            // Act
             List<int> value = TreeIntersection<int>.TreeIntersect(tree1, tree2);
 
+            // Assert
             List<int> expected = new List<int>();
 
             expected.Add(1);
@@ -65,6 +68,7 @@ namespace DataStructures.Tests
         [Fact]
         public void TreeIntersect_returns_duplicate_challenge()
         {
+            // Arrange
             BinaryTree<int> tree1 = new BinaryTree<int>();
             BinaryTree<int> tree2 = new BinaryTree<int>();
 
@@ -92,8 +96,10 @@ namespace DataStructures.Tests
             tree2.Root.Right.Right.Right = new Node<int>(500);
             tree2.Root.Right.Right.Left = new Node<int>(4);
 
+            // Act
             List<int> value = TreeIntersection<int>.TreeIntersect(tree1, tree2);
 
+            // Assert
             List<int> expected = new List<int>();
 
             expected.Add(100);
@@ -104,6 +110,72 @@ namespace DataStructures.Tests
             expected.Add(500);
 
             Assert.Equal(expected, value);
+        }
+
+        [Fact]
+        public void LeftJoin_can_left_join_single_key_value_pairs()
+        {
+            // Arrange
+            LeftJoin leftJoin = new LeftJoin();
+            Dictionary<string, string> HT1 = new Dictionary<string, string>();
+            Dictionary<string, string> HT2 = new Dictionary<string, string>();
+
+            HT1.Add("key", "value1");
+            HT2.Add("key", "value2");
+
+            // Act
+            List<string[]> result = leftJoin.LeftJoiner(HT1, HT2);
+
+            // Assert
+            List<string[]> expected = new List<string[]>();
+            string[] expectedArray = new string[3] {"key", "value1", "value2" };
+            expected.Add(expectedArray);
+
+            Assert.Equal(expected, result);
+
+        }
+
+        [Fact]
+        public void LeftJoin_can_left_join()
+        {
+            // Arrange
+            LeftJoin leftJoin = new LeftJoin();
+            Dictionary<string, string> HT1 = new Dictionary<string, string>();
+            Dictionary<string, string> HT2 = new Dictionary<string, string>();
+
+            HT1.Add("fond", "enamored");
+            HT1.Add("wrath", "anger");
+            HT1.Add("diligent", "employed");
+            HT1.Add("outfit", "garb");
+            HT1.Add("guide", "usher");
+
+            HT2.Add("fond", "averse");
+            HT2.Add("wrath", "delight");
+            HT2.Add("diligent", "idle");
+            HT2.Add("guide", "follow");
+            HT2.Add("flow", "jam");
+
+            // Act
+            List<string[]> result = leftJoin.LeftJoiner(HT1, HT2);
+
+            // Assert
+            // Expected: [["fond", "enamored", "averse"], ["wrath", "anger", "delight"], ["diligent", "employed", "idle"], ["outfit", "garb", null], ["guide", "usher", "follow"] , ["flow", null, "jam"]]
+            List<string[]> expected = new List<string[]>();
+            string[] expectedArray1 = new string[3] { "fond", "enamored", "averse" };
+            string[] expectedArray2 = new string[3] { "wrath", "anger", "delight" };
+            string[] expectedArray3 = new string[3] { "diligent", "employed", "idle" };
+            string[] expectedArray4 = new string[3] { "outfit", "garb", null };
+            string[] expectedArray5 = new string[3] { "guide", "usher", "follow" };
+            string[] expectedArray6 = new string[3] { "flow", null, "jam" };
+
+            expected.Add(expectedArray1);
+            expected.Add(expectedArray2);
+            expected.Add(expectedArray3);
+            expected.Add(expectedArray4);
+            expected.Add(expectedArray5);
+            //expected.Add(expectedArray6);
+
+            Assert.Equal(expected, result);
         }
     }
 }
