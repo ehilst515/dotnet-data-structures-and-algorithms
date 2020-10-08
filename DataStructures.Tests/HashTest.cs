@@ -153,7 +153,7 @@ namespace DataStructures.Tests
             HT2.Add("wrath", "delight");
             HT2.Add("diligent", "idle");
             HT2.Add("guide", "follow");
-            HT2.Add("flow", "jam");
+            HT2.Add("flow", "jam"); //<- Not expected to be in result
 
             // Act
             List<string[]> result = leftJoin.LeftJoiner(HT1, HT2);
@@ -166,14 +166,12 @@ namespace DataStructures.Tests
             string[] expectedArray3 = new string[3] { "diligent", "employed", "idle" };
             string[] expectedArray4 = new string[3] { "outfit", "garb", null };
             string[] expectedArray5 = new string[3] { "guide", "usher", "follow" };
-            string[] expectedArray6 = new string[3] { "flow", null, "jam" };
 
             expected.Add(expectedArray1);
             expected.Add(expectedArray2);
             expected.Add(expectedArray3);
             expected.Add(expectedArray4);
             expected.Add(expectedArray5);
-            //expected.Add(expectedArray6);
 
             Assert.Equal(expected, result);
         }
