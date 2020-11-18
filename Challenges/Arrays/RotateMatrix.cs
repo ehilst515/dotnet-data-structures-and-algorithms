@@ -6,9 +6,9 @@ namespace Challenges.Arrays
 {
     public class RotateMatrix
     {
-        public void rotate(int[][] matrix)
+        public static int[][] MatrixRotate(int[][] matrix)
         {
-            int n = matrix.length;
+            int n = matrix.Length;
 
             // transpose matrix
             for (int i = 0; i < n; i++)
@@ -20,6 +20,7 @@ namespace Challenges.Arrays
                     matrix[i][j] = tmp;
                 }
             }
+
             // reverse each row
             for (int i = 0; i < n; i++)
             {
@@ -30,6 +31,8 @@ namespace Challenges.Arrays
                     matrix[i][n - j - 1] = tmp;
                 }
             }
+
+            return matrix;
         }
     }
 }
