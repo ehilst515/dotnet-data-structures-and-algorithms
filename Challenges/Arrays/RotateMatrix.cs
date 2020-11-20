@@ -6,18 +6,18 @@ namespace Challenges.Arrays
 {
     public class RotateMatrix
     {
-        public static int[][] MatrixRotate(int[][] matrix)
+        public static int[][] MatrixRotate(int[][] a)
         {
-            int n = matrix.Length;
+            int n = a.Length;
 
             // transpose matrix
             for (int i = 0; i < n; i++)
             {
                 for (int j = i; j < n; j++)
                 {
-                    int tmp = matrix[j][i];
-                    matrix[j][i] = matrix[i][j];
-                    matrix[i][j] = tmp;
+                    int tmp = a[j][i];
+                    a[j][i] = a[i][j];
+                    a[i][j] = tmp;
                 }
             }
 
@@ -26,13 +26,13 @@ namespace Challenges.Arrays
             {
                 for (int j = 0; j < n / 2; j++)
                 {
-                    int tmp = matrix[i][j];
-                    matrix[i][j] = matrix[i][n - j - 1];
-                    matrix[i][n - j - 1] = tmp;
+                    int tmp = a[i][j];
+                    a[i][j] = a[i][n - j - 1];
+                    a[i][n - j - 1] = tmp;
                 }
             }
 
-            return matrix;
+            return a;
         }
     }
 }
