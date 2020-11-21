@@ -20,5 +20,20 @@ namespace Challenges.tests.Strings
             //Assert
             Assert.Equal(exp, actual.ToString());
         }
+
+        [Theory]
+        [InlineData("aabaa", true)]
+        [InlineData("aabac", false)]
+        public void CheckPalindrome_returns_correct_bool(string inputString, bool expected)
+        {
+            //Arrange
+            //InlineData
+
+            //Act
+            bool actual = Palindrome.checkPalindrome(inputString);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }
