@@ -8,7 +8,7 @@ namespace Challenges.Algerbraic
     {
         public static int AdjacentElementsProduct(int[] inputArray)
         {
-            int largestProduct = 0;
+            int largestProduct = inputArray[0] * inputArray[1];
 
             for (int i = 1; i < inputArray.Length; i++)
             {
@@ -16,7 +16,7 @@ namespace Challenges.Algerbraic
                 if (currentProduct > largestProduct)
                     largestProduct = currentProduct;
             }
-
+            
             return largestProduct;
 
         }
