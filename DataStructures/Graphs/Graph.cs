@@ -52,5 +52,11 @@ namespace DataStructures.Graphs
                 yield return n;
         }
 
+        public IEnumerable<Vertex> BreadthFirst()
+        {
+            foreach (Vertex n in Vertices)
+                yield return n;
+        }
+
     }
 }
