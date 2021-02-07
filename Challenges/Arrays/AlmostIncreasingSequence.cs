@@ -22,14 +22,14 @@ namespace Challenges.tests.Arrays
 
             int removeCount = 1;
 
-            for(int i = 2; i < s.Length + 1; i++)
+            for (int i = 2; i < s.Length + 1; i++)
             {
-                if(removeCount == 0)
+                if (removeCount == 0)
                 {
                     if (s[i - 3] == s[i - 1])
                         return false;
 
-                    for(i = i - 2; i < s.Length - 1; i++)
+                    for (i = i - 2; i < s.Length - 1; i++)
                         if (s[i] >= s[i + 1])
                             return false;
 
@@ -40,7 +40,7 @@ namespace Challenges.tests.Arrays
                     if (s[i - 2] >= s[i - 1] || s[i - 2] == s[i])
                         removeCount = 0;
 
-                if(removeCount == 1)
+                if (removeCount == 1)
                 {
 
                     if (s[i - 2] >= s[i - 1] && s[i - 2] >= s[i])
@@ -50,6 +50,25 @@ namespace Challenges.tests.Arrays
                         removeCount = 0;
                 }
             }
+
+            return true;
+        }
+
+        public static bool IncreaseCheck(int[] s)
+        {
+            for (int i = 1; i < s.Length; i++)
+                if (s[i - 1] >= s[i])
+                    for (int j = i + 1; j < s.Length; j++)
+                        if (s[j - 1] >= s[j])
+                            return false;
+
+            return true;
+        }
+
+        public static bool IncreaseCheckHelper(int firstNum, int secondNum)
+        {
+            if (firstNum > secondNum)
+                return false;
 
             return true;
         }

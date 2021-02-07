@@ -12,7 +12,7 @@ namespace Challenges.tests.Arrays
             int[] s = new int[] { 1, 1, 2, 3, 4, 4 };
 
             // Act 
-            bool actual = AlmostIncreasingSequence.IncreasingCheck(s);
+            bool actual = AlmostIncreasingSequence.IncreaseCheck(s);
 
             // Assert
             Assert.False(actual);
@@ -25,7 +25,7 @@ namespace Challenges.tests.Arrays
             int[] s = new int[] { 1, 2, 1, 2 };
 
             // Act 
-            bool actual = AlmostIncreasingSequence.IncreasingCheck(s);
+            bool actual = AlmostIncreasingSequence.IncreaseCheck(s);
 
             // Assert
             Assert.False(actual);
@@ -38,7 +38,7 @@ namespace Challenges.tests.Arrays
             int[] s = new int[] { 10, 1, 2, 3, 4, 5 };
 
             // Act 
-            bool actual = AlmostIncreasingSequence.IncreasingCheck(s);
+            bool actual = AlmostIncreasingSequence.IncreaseCheck(s);
 
             // Assert
             Assert.True(actual);
@@ -51,7 +51,7 @@ namespace Challenges.tests.Arrays
             int[] s = new int[] { 1, 2, 3, 4, 5, 3, 5, 6 };
 
             // Act 
-            bool actual = AlmostIncreasingSequence.IncreasingCheck(s);
+            bool actual = AlmostIncreasingSequence.IncreaseCheck(s);
 
             // Assert
             Assert.False(actual);
